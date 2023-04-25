@@ -43,6 +43,7 @@ requirements:
   run:
     - r-base {{ r_version }}
     - {{ native }}gcc-libs         # [win]
+    - {{ compiler('m2w64-toolchain') }} # [win]
     - r-cpp11
     - fontconfig
 
