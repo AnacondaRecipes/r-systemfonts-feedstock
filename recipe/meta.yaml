@@ -24,9 +24,8 @@ requirements:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-cpp11                    # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ compiler('m2w64-toolchain') }} # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}grep              # [win]
@@ -38,13 +37,16 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
   host:
-    - r-base
+    - r-base {{ r_version }}
     - r-cpp11
     - freetype
   run:
-    - r-base
+    - r-base {{ r_version }}
     - {{ native }}gcc-libs         # [win]
+    - {{ compiler('m2w64-toolchain') }} # [win]
+    - m2w64-gcc-libs-core    # [win]
     - r-cpp11
+    - fontconfig
 
 test:
   commands:
@@ -64,6 +66,12 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
+  anaconda-services:
+    ref:  https://anaconda.zendesk.com/agent/tickets/35116
+    reason: "needed for building r-svglite"
+    recipe-maintainers:
+      - bkreider
+
 
 # Package: systemfonts
 # Type: Package
