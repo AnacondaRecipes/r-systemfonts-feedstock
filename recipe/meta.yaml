@@ -44,7 +44,7 @@ requirements:
     - r-base {{ r_version }}
     - {{ native }}gcc-libs         # [win]
     - {{ compiler('m2w64-toolchain') }} # [win]
-    - {{ m2w64-gcc-libs-core  }}   # [win]
+    - m2w64-gcc-libs-core    # [win]
     - r-cpp11
     - fontconfig
 
