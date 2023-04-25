@@ -64,6 +64,12 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
+  anaconda-services:
+    ref:  https://anaconda.zendesk.com/agent/tickets/35116
+    reason: "needed for building r-svglite"
+    recipe-maintainers:
+      - bkreider
+
 
 # Package: systemfonts
 # Type: Package
