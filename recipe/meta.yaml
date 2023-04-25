@@ -24,9 +24,7 @@ requirements:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-cpp11                    # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
-    #- {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
-    #- {{ compiler('m2w64_cxx') }}      # [win]
     - {{ compiler('m2w64-toolchain') }} # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
@@ -46,6 +44,7 @@ requirements:
     - r-base {{ r_version }}
     - {{ native }}gcc-libs         # [win]
     - r-cpp11
+    - freetype
 
 test:
   commands:
