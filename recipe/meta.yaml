@@ -38,11 +38,11 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
   host:
-    - r-base
+    - r-base {{ r_version }}
     - r-cpp11
     - freetype
   run:
-    - r-base
+    - r-base {{ r_version }}
     - {{ native }}gcc-libs         # [win]
     - r-cpp11
 
